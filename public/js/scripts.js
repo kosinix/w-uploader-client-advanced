@@ -38,14 +38,13 @@ jQuery(document).ready(function($){
         e.preventDefault();
         var processCount = 0;
         for (var i = 0; i < fileQueue.length; i++) {
-            
+
             var formData = new FormData();
 
             // Add the files to formData object for the data payload
             formData.append('photos', fileQueue[i], fileQueue[i].name);
 
             var httpRequest = new XMLHttpRequest();
-            // httpRequest.setRequestHeader('Content-Type', 'multipart/form-data')
             httpRequest.open('POST', '/upload');
 
             httpRequest.upload.addEventListener('progress', (function(file, $item) { return function(event) {
